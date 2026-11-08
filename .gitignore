@@ -1,0 +1,13 @@
+# secrets
+.api_key
+*.key
+.env
+
+# runtime state (generated when the agent runs)
+src/state/
+src/reports/
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/

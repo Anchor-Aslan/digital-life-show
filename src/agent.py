@@ -150,7 +150,7 @@ def default_state():
         "repair_log": [],            # 通道修好的历史
 
         # ↓↓↓ 11-04 补：抑制器 + 压力派生量
-        "arousal_suppression": 0.0,  # L1 每轮算（生理层：累/痛/慢性压力）→ 压低欲望
+        "arousal_suppression": 0.0,  # L1 每轮算（生理层：累/痛/慢性压力）→ 压低唤起
         "pressure_history": [],      # 压力的历史（近 20 轮）；慢平均就是 chronic
     }
 
@@ -410,7 +410,7 @@ if __name__ == "__main__":
         #    注意：这两个动作影响的是**下一轮**的 arousal 读数（本轮已经读过了）。
         pres = l0.pressure(state)
         if pres["acute"] > 0:
-            l0.note_cue(state, pres["acute"] * 0.3)        # 急性压力当线索（越急越想要）
+            l0.note_cue(state, pres["acute"] * 0.3)        # 急性压力当线索（急性压力推高兴奋）
         state["arousal_suppression"] = l1.suppression(state, pres)   # 慢性压力 + 累 + 痛 → 压低
 
         # ③ L3：把这一下变成键，再取出"多想要 / 多想躲"（值不进提示词，只喂 L1）

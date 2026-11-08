@@ -204,13 +204,16 @@ rather than removing it.
 Requirements: Python 3 (tested on 3.13), **standard library only**. There is
 nothing to `pip install`.
 
+Identifiers, this README and the demo output are in English. Code comments,
+test reports and the agent's system prompt are in Chinese.
+
 ### Without an API key
 
 Everything except live dialogue runs offline.
 
 ```bash
-git clone https://github.com/Anchor-Aslan/digital-life.git
-cd digital-life
+git clone https://github.com/Anchor-Aslan/digital-life-show.git
+cd digital-life-show
 
 python examples/show_valence.py   # what L3 reads out of a sentence
 python run_tests.py               # full test suite
